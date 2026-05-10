@@ -22,7 +22,7 @@ class Explosion:
         resultados = []
 
         for observador in self._observadores:
-            observador._al_iniciar(config)
+            observador.al_iniciar(config)
             
         for angulo_deg, v0 in condiciones_iniciales:
             trayectoria, resultado = self._simular_proyectil(angulo_deg, v0, config)
@@ -32,7 +32,7 @@ class Explosion:
                     observador.al_aterrizar(resultado)
 
         for observador in self._observadores:
-            observador._al_finalizar(resultados)
+            observador.al_finalizar(resultados)
         return trayectorias, resultados
 
     def _generar_angulo(self, rng, config: ConfigExplosion) -> float:
