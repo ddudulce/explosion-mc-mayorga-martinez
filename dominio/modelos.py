@@ -40,6 +40,9 @@ class ConfigExplosion:
     dt: float = 0.04
     semilla: int = 42
     trail_length: int = 18
+    tipo: str = "ligero"
+    metodo: str = "euler"
+    salida: str = "animacion"
     modo_ejecucion: str = "secuencial"
     workers: int | None = None
     dist_angulo: str = "uniforme"

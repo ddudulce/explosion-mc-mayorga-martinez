@@ -30,6 +30,9 @@ def cargar_config_yaml(ruta: str = "config.yaml") -> ConfigExplosion:
         dt=simulacion.get("dt", 0.04),
         semilla=simulacion.get("semilla", 42),
         trail_length=visualizacion.get("trail", 18),
+        tipo=simulacion.get("tipo", "ligero"),
+        metodo=simulacion.get("metodo", "euler"),
+        salida=simulacion.get("salida", "animacion"),   
         modo_ejecucion=ejecucion.get("modo", "secuencial"),
         workers=ejecucion.get("workers", None),
         dist_angulo=dist_angulo.get("tipo", "uniforme"),
@@ -39,4 +42,5 @@ def cargar_config_yaml(ruta: str = "config.yaml") -> ConfigExplosion:
         dist_velocidad=dist_velocidad.get("tipo", "uniforme"),
         vel_media=dist_velocidad.get("media", 12.0),
         vel_sigma=dist_velocidad.get("sigma", 4.0),
+        
     )
