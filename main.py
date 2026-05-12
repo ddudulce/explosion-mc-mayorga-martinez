@@ -9,6 +9,7 @@ from dominio.patrones.observador import MonitorEstadisticas
 
 from adaptadores.entrada.cli import EntradaCLI
 from adaptadores.salida.csv_output import SalidaCSV
+from adaptadores.salida.animacion import SalidaAnimacion
 
 
 def seleccionar_fabrica(tipo: str):
@@ -68,11 +69,10 @@ def main():
         print(f"Alcance maximo: {resumen['alcance_max']:.3f} m")
         print(f"Altura maxima: {resumen['altura_max']:.3f} m")
 
-    if config.salida == "animacion":
-        print("La salida de animacion se agregara en el adaptador correspondiente.")
-
+    if config.salida in ("animacion", "ambos"):
+        salida_animacion = SalidaAnimacion()
+        salida_animacion.mostrar(config, trayectorias, resultados)
     return trayectorias, resultados
-
 
 if __name__ == "__main__":
     main()
